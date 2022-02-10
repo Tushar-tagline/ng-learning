@@ -1,19 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { resetFakeAsyncZone } from '@angular/core/testing';
 import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-loginform',
   templateUrl: './loginform.component.html',
-  styleUrls: ['./loginform.component.scss']
+  styleUrls: ['./loginform.component.scss'],
 })
 export class LoginformComponent implements OnInit {
+  @ViewChild('form') form!: NgForm;
+  public user = { email: '', password: '' };
+  showdata: boolean = false;
+  email: any;
+  password: any;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  onsumbit() {
+    // console.log('forms sumbit', this.form);
+    //const {email,password}=this.form.value
+    this.user.email = this.form.value.email;
+    this.user.password = this.form.value.password;
+    this.onReset();
+    this.showdata = true;
   }
-  onsumbit(form:NgForm){
-    console.log("forms sumbit",form)
+  onReset() {
+    this.form.reset();
   }
-
 }

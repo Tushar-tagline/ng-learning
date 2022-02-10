@@ -3,27 +3,55 @@
         <div class="col-sm-6">
             <div class="card my-auto shadow ">
                 <div class="card-header text-center ">
-                  <h3 class="font-effect-fire">LOGIN</h3>
+                    <h3 class="font-effect-fire">LOGIN</h3>
                 </div>
                 <div class="card-body">
-                    <form (ngSubmit)="onsumbit(form)" #form="ngForm">
+                    <form (ngSubmit)="onsumbit()" #form="ngForm">
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" ngModel name="email"  required email  #emailInput=ngModel>
-                          <span *ngIf="!emailInput.valid  && emailInput.touched" class="error">enter the valid email</span>
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" ngModel name="email"
+                                required email #emailInput=ngModel>
+                            <span *ngIf="!emailInput.valid  && emailInput.touched" class="error">enter the valid
+                                email</span>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" ngModel name="password" required #pass=ngModel minlength="4">
-                          <span *ngIf="!pass.valid && pass.touched" class="passerror">Give the 4 digit password</span>
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" ngModel
+                                name="password" required #pass=ngModel minlength="4">
+                            <span *ngIf="!pass.valid && pass.touched" class="passerror">Give the 4 digit password</span>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">Submit</button>
-                      </form>
+
+                        <button type="submit" class="btn btn-primary "[disabled]="form.invalid">Submit</button>
+                        <button type="reset" class="btn btn-danger m-1" (click)="onReset()">Cancle</button>
+                    </form>
                 </div>
-              </div>
+            </div>
         </div>
 
+    </div>
+
+</div>
+
+
+
+<div class="row">
+    <div class="col-sm-4" *ngIf="showdata">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="row">No</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{user.email}}</td>
+                    <td>{{user.password}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 </div>
