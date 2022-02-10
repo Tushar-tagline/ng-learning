@@ -1,0 +1,29 @@
+<div class="container justify-content-center mt-4">
+    <div class="row justify-content-center h-100">
+        <div class="col-sm-6">
+            <div class="card my-auto shadow ">
+                <div class="card-header text-center ">
+                  <h3 class="font-effect-fire">LOGIN</h3>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onsumbit(form)" #form="ngForm">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" ngModel name="email"  required email  #emailInput=ngModel>
+                          <span *ngIf="!emailInput.valid  && emailInput.touched" class="error">enter the valid email</span>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" ngModel name="password" required #pass=ngModel minlength="4">
+                          <span *ngIf="!pass.valid && pass.touched" class="passerror">Give the 4 digit password</span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">Submit</button>
+                      </form>
+                </div>
+              </div>
+        </div>
+
+    </div>
+
+</div>
