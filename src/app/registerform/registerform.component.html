@@ -1,52 +1,70 @@
-<p>registerform works!</p>
 <div class="container">
     <div class="row">
         <div class="col-sm-6 border border-dark bg-opacity-10">
-            <form [formGroup]="myreactive" (ngSubmit)="onsumbit()">
+            <form [formGroup]="myreactive" (ngSubmit)="onsumbit()" novalidate>
                 <div class="card-header text-center mb-2 border border-dark mt-2">
                     <h3 class="bg-light">Register Form</h3>
                 </div>
                 <div class="mb-3">
                     <label> First name</label>
-                    <input type="text" class="form-control" formControlName="fname"/>
+                    <input type="text" class="form-control" formControlName="fname" />
+                    <span *ngIf="user && !user.valid && user.touched" class="rerror">Please enter the first name</span>
                 </div>
                 <div class="mb-3">
                     <label> Last name</label>
-                    <input type="text" class="form-control"formControlName="lname"/>
+                    <input type="text" class="form-control" formControlName="lname" />
+                    <span *ngIf="lname && !lname.valid && lname.touched" class="rerror">Please enter the Last
+                        name</span>
                 </div>
                 <div class="mb-3">
                     <label>Email</label>
-                    <input type="email" class="form-control" formControlName="email"/>
+                    <input type="email" class="form-control" formControlName="email" />
+                    <span *ngIf="email && !email.valid && email.touched" class="rerror">Please enter the valid
+                        Email</span>
                 </div>
 
                 <div class="mb-3">
                     <label>Adderss</label>
-                    <input type="email" class="form-control" formControlName="address"/>
-                </div>
-                <div class="group-gap">
-                    <h5 class="mb-3">Gender</h5>
-                    <div class="d-block my-3">
-                        <div class="custom-control custom-radio">
-                            <input id="male" type="radio" class="custom-control-input" name="gender" value="male"  formControlName="gender"/>
-                            <label class="custom-control-label" for="male">Male</label>
-
-                            <input id="female" type="radio" class="custom-control-input m-1" name="gender"
-                                value="female" />
-                            <label class="custom-control-label" for="female">Female</label>
-                        </div>
-                    </div>
+                    <input type="email" class="form-control" formControlName="address" />
+                    <span *ngIf="address && !address.valid && address.touched" class="rerror">Please enter the
+                        address</span>
                 </div>
                 <div class="mb-3">
+                    <div class="radio">
+                        <label class="me-1">Gender</label>
+                        <label *ngFor="let item of genders">
+                            <input type="radio" value="{{item.id}}" formControlName="gender" />{{ item.value}}
+                        </label>
+                    </div>
+                    <span *ngIf="gender && !gender.valid && gender.touched" class="rerror">Please enter the gender</span>
+                </div>
+                 <div class="mb-3">
+                    <div class="custom-control custom-checkbox">
+                        <label for="" class="me-1">Hobby</label>
+                        <label *ngFor="let item of hobbys">
+                            <input type="checkbox" class="custom-control-input" formControlName="myCheckbox1"
+                                id="myCheckbox1" value="{{item}}" />{{item.value}}
+                        </label>
+                    </div>
+                    <span *ngIf="hobby&& !hobby.valid && hobby.touched" class="rerror">Please enter the hobby</span>
+                </div>
+                <!-- <mat-checkbox name="city">hello</mat-checkbox> -->
+
+                <div class="mb-3">
                     <label>State</label>
+
                     <select class="custom-select d-block w-100 form-control" formControlName="state">
-                        <option value="">Choose...</option>
-                        <option></option>
+                        <option value="">Choose</option>
+                        <option *ngFor="let item of states">{{item }}</option>
                     </select>
+                    <span *ngIf="state && !state.valid && state.touched" class="rerror">Please enter the state</span>
                 </div>
                 <div class="mb-3">
                     <label>City</label>
-                    <input type="text" class="form-control"  formControlName="city"/>
+                    <input type="text" class="form-control" formControlName="city" />
+                    <span *ngIf="city && !city.valid && city.touched" class="rerror">Please enter the city</span>
                 </div>
+
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary mb-2 w-50">
                         Submit

@@ -9,10 +9,11 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginformComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
+  public showdata: boolean = false;
+  public email: any;
+  public password: any;
   public user = { email: '', password: '' };
-  showdata: boolean = false;
-  email: any;
-  password: any;
+  
   constructor() {}
 
   ngOnInit(): void {}
