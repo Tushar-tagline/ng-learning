@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DatepipesComponent } from './datepipes/datepipes.component';
+import { CustompipePipe } from './custompipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DatepipesComponent
+    DatepipesComponent,
+    CustompipePipe
   ],
   imports: [
     BrowserModule,

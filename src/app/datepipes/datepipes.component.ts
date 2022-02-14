@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./datepipes.component.scss']
 })
 export class DatepipesComponent implements OnInit {
-  public valuedate=new Date();
+ 
+ 
   constructor() { }
 
   ngOnInit(): void {
