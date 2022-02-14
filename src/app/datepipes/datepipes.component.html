@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Date </h2>
+            </div>
+            <div class="card-body">
+                <span>using (shortTime) pipe</span>
+                <p>{{valuedate | date:'shortTime'}}</p>
+                <span>using (fulldate) pipe</span>
+                <p>{{ valuedate | date: 'fullDate' }}</p>
+                <span>using (d/m/y) pipe</span>
+                <p>{{ valuedate | date: 'd/M/y' }}</p>
+            </div>
+        </div>
+    </div>
+</div>
