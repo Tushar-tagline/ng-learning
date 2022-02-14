@@ -36,10 +36,8 @@ export class RegisterformComponent implements OnInit {
     }
   ]
 
-  constructor(private fb: FormBuilder) {
-    this.myreactive = this.fb.group({
-      checkArray: this.fb.array([], [Validators.required])
-    })
+  constructor() {
+   
   }
   // onCheckboxChange(e.target.checked) {
   //   const checkArray: FormArray = this.myreactive.get('checkArray') as FormArray;
@@ -50,6 +48,8 @@ export class RegisterformComponent implements OnInit {
   //     checkArray.controls.forEach((item: FormControl) => {
   //       if (item.value == e.target.value) {
   //         checkArray.removeAt(i);
+
+
   //         return;
   //       }
   //       i++;

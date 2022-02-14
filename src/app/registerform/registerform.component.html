@@ -36,9 +36,10 @@
                             <input type="radio" value="{{item.id}}" formControlName="gender" />{{ item.value}}
                         </label>
                     </div>
-                    <span *ngIf="gender && !gender.valid && gender.touched" class="rerror">Please enter the gender</span>
+                    <span *ngIf="gender && !gender.valid && gender.touched" class="rerror">Please enter the
+                        gender</span>
                 </div>
-                 <div class="mb-3">
+                <div class="mb-3">
                     <div class="custom-control custom-checkbox">
                         <label for="" class="me-1">Hobby</label>
                         <label *ngFor="let item of hobbys">
