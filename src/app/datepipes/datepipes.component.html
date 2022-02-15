@@ -2,13 +2,13 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header">
-                <h2 class="text-center">Date </h2>
+                <h2 class="text-center">Date</h2>
             </div>
             <div class="card-body">
                 <span class="text-primary">Using (shortTime) pipe</span>
                 <p>{{valuedate | date:'shortTime'}}</p>
                 <span class="text-primary">Using (fulldate) pipe</span>
-                <p>{{ valuedate | date: 'fullDate' }}</p>
+                <p>{{ valuedate | date: 'fullDate' | uppercase}}</p>
                 <span class="text-primary">Using (d/m/y) pipe</span>
                 <p>{{ valuedate | date: 'd/M/y' }}</p>
                 <span class="text-primary">Using (medium) pipe</span>
@@ -22,8 +22,14 @@
                  <span class="text-primary">Using (shortTime) pipe</span>
                  <p>{{valuedate | date:'shortTime'}}</p> 
 
-                 <h3>{{title | custompipe}}</h3>
-            </div>
+                 <h3>{{title |custompipe:9 | titlecase  }}</h3>
+                 <h3>{{value | currency:'CAD':'symbol'}}</h3>
+                 <h3>{{value | currency:'INR'}}</h3>
+                 <p>{{value|currency:'INR':'symbol':'4.2-2'}}</p>
+                 <p>{{value |currency:'INR':'symbol':'3.1-1'}}</p>
+
+                
+            </div>      
         </div>
     </div>
 </div>
